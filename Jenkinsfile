@@ -9,6 +9,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                sh "chmod +x -R ${env.WORKSPACE}"
                 sh './scripts/stop-app.sh'
                 sh './scripts/start-app.sh'
             }
